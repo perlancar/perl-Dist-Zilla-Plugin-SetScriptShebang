@@ -27,7 +27,7 @@ sub munge_files {
 sub munge_file {
     my ($self, $file) = @_;
 
-    if ($file->name =~ m!^(bin|scripts?)/!) {
+    unless ($file->name =~ m!^(bin|scripts?)/!) {
         $self->log_debug('Skipping ' . $file->name . ': not script');
         return;
     }
