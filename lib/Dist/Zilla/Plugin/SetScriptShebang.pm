@@ -27,10 +27,11 @@ sub munge_files {
 sub munge_file {
     my ($self, $file) = @_;
 
-    unless ($file->name =~ m!^(bin|scripts?)/!) {
-        $self->log_debug('Skipping ' . $file->name . ': not script');
-        return;
-    }
+    # should not be necessary because we've filtered for ExecFiles in finder
+    #unless ($file->name =~ m!^(bin|scripts?)/!) {
+    #    $self->log_debug('Skipping ' . $file->name . ': not script');
+    #    return;
+    #}
 
     my $content = $file->content;
 
